@@ -1,19 +1,15 @@
-const Comments = (props) => {
-    //console.log(props.comment);
-    console.log("id: ", props.id);
-  
+const Comments = (props) => { 
     return (
       <div className="divComments">
-        {props.comment.map((comment) => {
-          //console.log(comment);
+        {props.comment.map((comment, i) => {
           console.log("postId: ", comment.postId);
           return (
-            <div>
+            <div key={i}>
               <div className="userInfo">
                 <p className="commentName">Name: {comment.name}</p>
                 <p className="commentEmail">Email: {comment.email}</p>
               </div>
-              <p >
+              <p>
                 {comment.body}
               </p>
             </div>

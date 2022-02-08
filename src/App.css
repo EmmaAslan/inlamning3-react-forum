@@ -5,36 +5,47 @@
 
 body {
   margin: 0px;
+  color: #386d57;
 }
 
-header {
+.header {
   background: #baead6;
-  /* position: sticky; */
-  /*top: 0; */
-  /* bottom: 0; */
 }
 
-footer {
-  background-color: #baead6;
-  text-align: center;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: sticky;
-  bottom: 0;
-}
-
-.footerIcons {
- margin-left: 50px;
-}
-
-header h1 {
+.header h1 {
   margin: 0px auto;
   height: 150px;
   justify-content: space-evenly;
   align-items: center;
   display: flex;
+}
+
+.footer {
+  background-color: #baead6;
+  text-align: center;
+  height: 70px;
+  align-items: center;
+  justify-content: center;
+  position: fixed; 
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+
+}
+
+.footerIcons {
+ text-align: right;
+  padding-right: 30px;
+}
+.footerIcons a {
+  color: #386d57;
+}
+
+.footer small {
+  text-align: left;
+  padding-left: 30px;
 }
 
 /* CSS för Home */
@@ -45,7 +56,7 @@ header h1 {
 .postList {
   color: #6fc5a1;
   font-size: 18px;
-  height: 65px;
+  height: 55px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -88,6 +99,10 @@ a:-webkit-any-link {
   margin-bottom: auto;
 }
 
+.placeHolder img {
+  width: 100%;
+}
+
 button {
   height: 35px;
   width: 170px;
@@ -96,7 +111,9 @@ button {
   border-left: 2px ridge #49886e;
   border-right: 2px ridge #49886e;
   background-color: #baead6 ;
+  color: #49886e; 
   font-size: medium;
+  
 }
 
 button:hover {
@@ -105,15 +122,34 @@ button:hover {
   box-shadow: 2px 2px 14px -4px rgba(0,0,0,0.31);
 }
 
+/* CSS för Author */
+.author {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  font-size: small;
+}
 
+.authorName {
+  display: grid;
+  align-items: center;
+  text-align: left;
+}
 
+.authorName svg {
+  padding-right: 5px;
+}
+
+.authorDate {
+  text-align: right;
+}
 
 /* CSS för kommentarerna */
 .divComments {
   margin: 0 20% 0 20%;
   text-align: left;
+  margin-bottom: 100px;
 }
-
 
 .userInfo {
   display: grid;
@@ -132,3 +168,46 @@ button:hover {
   margin: 0 10px 40px 10px;
   padding-left: 10px;
 }
+
+/* CSS för paginering */
+ .paginationBttns {
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 2px;
+  border-radius: 5px;
+  border: 1px solid #49886e;
+  color: #6fc5a1;
+  cursor: pointer;
+}
+
+/* Style på de sidorna man drar musen över */
+.paginationBttns a:hover {
+  color: #6fc5a1;
+  background-color: #d1ebe0;
+}
+
+/* Den aktuella sidan man står på */
+.paginationActive a {
+  color: #6fc5a1;
+  background-color: #d1ebe0;
+} 
+
+/* Avaktiverade knappar - Previous + Next när man inte kan hoppa längre på det hållet */
+ .paginationDisabled a {
+  color: #9da5a2;
+  background-color: #d7dfdb;
+} 
+
+/* Avaktiverade knappar - hover */
+.paginationDisabled a:hover {
+  color: #9da5a2;
+  background-color: #d7dfdb;
+  cursor: default;
+} 

@@ -1,7 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Comments from "../components/Comments.jsx";
+import Author from "../components/Author.jsx";
 import { FaComments } from "react-icons/fa";
+import {TiArrowBack} from "react-icons/ti"
 
 const PostPage = () => {
   const { id } = useParams();
@@ -25,31 +27,26 @@ const PostPage = () => {
   return (
     <div>
       <Link to="/">
-        <button className="backToStart">Back to startpage</button>
+        <button className="backToStart"> <TiArrowBack/>Back to startpage</button>
       </Link>
-
-      
+     
       <div className="imgBody"> 
-      <div className="postBody">
-      <h2>{post.title}</h2>
-      <p>{post.body}</p>
-      </div>
-      <div className="placeHolder">
-        <img src="https://picsum.photos/400/150" />
-      </div>
-      
+        <div className="postBody">
+          <h2>{post.title}</h2>
+          <p>{post.body}</p>
+        </div>
+
+        <div className="placeHolder">
+          <img src="https://picsum.photos/400/150" />
+          <Author />
+        </div>
       </div>
 
       <button onClick={() => {
         setShowComments(!showComments)
-      }}><FaComments/> {!showComments ? ` Show comments` : ` Hide comments`
-
-      }</button>
+      }}><FaComments/> {!showComments ? ` Show comments` : ` Hide comments`}</button>
 
       {showComments && <Comments comment={comment} id={id} />}
-
-      
-
       <br />
     </div>
   );
